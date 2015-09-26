@@ -1,27 +1,20 @@
-<html>
-	<head>
-		<title>Sherlock Schröder</title>
-	</head>
-	<body>
-		<div>
-			<h1>Sherlock Schröder & Watson Fussel</h1>
-		</div>	
+{% extends "blog/base.html" %}
 
+{% block content %}
 		<div>
 			<h2>On to their next adventure...</h2>
 			<p>Where off to?</p>
 			<ul><li><a href="https://www.wikiwand.com/de/Havana">Havana</a></li><li><a href="https://www.wikiwand.com/de/Hamburg">Hamburg</a></li><li><a href="https://www.wikiwand.com/de/Haiti">Haiti</a></li>
 		</div>
 
-		<div>
-			{% for post in posts %}
-			<div>
-       			<p>published: {{ post.published_date }}</p>
-        		<h1><a href="">{{ post.title }}</a></h1>
-        		<p>{{ post.text|linebreaks }}</p>
-    		</div>
-			{% endfor %}
-		</div>
-
-	</body>
-</html>
+		
+            {% for post in posts %}
+                <div class="post">
+                    <div class="date">
+                        <p>published: {{ post.published_date }}</p>
+                    </div>
+                    <h1><a href="">{{ post.title }}</a></h1>
+                    <p>{{ post.text|linebreaks }}</p>
+                </div>
+            {% endfor %}
+{% endblock %}
